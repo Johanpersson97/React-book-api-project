@@ -15,9 +15,19 @@ const InputForm = () => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data.items)
-        setBooks(data.items);
-        console.log(data.items[0].volumeInfo.title);
+        const books = data.items.map(item =>item.volumeInfo);
+        
+        
+        console.log(data.items[0].volumeInfo)
+
+        setBooks([...books, {
+    
+          title: books.title,
+   
+          publishedDate: books.publishedDate
+        }]);
+        console.log(books[0].title)
+        
       })
       .catch(error => {
         console.error(error);
@@ -29,7 +39,9 @@ const InputForm = () => {
       <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
       <button onClick={handleSearch}>Sök</button>
 
-
+      <ul>
+        {books.map(book => (<Book key={book.id} item= {book}/>))}
+      </ul>
 
     
 
