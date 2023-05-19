@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Book = () => {
-  return (
-    <div>
-      
-    </div>
-  );
-}
 
-export default Book;
+
+export default function Book(props) { 
+
+    return (
+        <li>title: {props.item.title} year: {props.item.publishedDate}</li>
+
+    )
+}
