@@ -25,3 +25,7 @@ body {
 .dropdown-menu {
   width: 400px;
 }
+
+#book_icon {
+  max-width: 100px;
+}
