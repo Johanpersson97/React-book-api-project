@@ -1,4 +1,5 @@
 import React from "react";
+import Bookshelf from "./bookshelf"
 
 const ToggleBookshelf = () => {
   return (
@@ -10,7 +11,7 @@ const ToggleBookshelf = () => {
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          ... {/* Här lägger vi alla list items för bookshelf  */}
+          <Bookshelf />
         </div>
       </div>
     </div>

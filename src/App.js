@@ -10,8 +10,8 @@ function App() {
       <div className='d-flex' >
         <img src={require('./book_icon_large.png')} id='book_icon' />
         <div className='ms-2'>
-          <h1 className="display-2 mb-0">Bookster</h1>
-          <p className="ms-1 h5 mt-0">Your online bookshelf</p>
+          <h1 className="h1 mb-0">Bookster</h1>
+          <p className="h5 ms-1 mt-0">Your online bookshelf</p>
           </div>
       </div>
     </header>
