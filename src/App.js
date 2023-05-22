@@ -1,5 +1,6 @@
 import './App.css';
 import ToggleBookshelf from './toggleBookshelf';
+import InputForm from './formContainer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <p className="h5 ms-1 mt-0">Your online bookshelf</p>
           </div>
       </div>
+      <InputForm />
     </header>
   );
 }

@@ -17,17 +17,17 @@ const InputForm = () => {
       .then(data => {
         const books = data.items.map(item =>item.volumeInfo);
         
-        
-        console.log(data.items[0].volumeInfo)
-
-        setBooks([...books, {
-    
-          title: books.title,
-   
-          publishedDate: books.publishedDate
-        }]);
-        console.log(books[0].title)
-        
+        var newId = books.length > 0 ?books[books.length - 1].id + 1 : 1;
+        console.log(data.items[1].volumeInfo)
+        const newBooks = books.map(book=> ({
+          id: newId++,
+          title: book.title,
+          authors: book.authors,
+          publishedDate: book.publishedDate,
+          img: book.imageLinks?.thumbnail
+        }))
+        console.log(newBooks);
+        setBooks(prevBooks=> [...prevBooks, ...newBooks]);
       })
       .catch(error => {
         console.error(error);
