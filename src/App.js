@@ -10,11 +10,11 @@ function App() {
           <ToggleBookshelf />
         </div>
         <div className='d-flex' >
-          <img src={require('./book_icon_large.png')} id='book_icon' />
+          <img src={require('./book_icon_large.png')} id='bookIcon' />
           <div className='ms-2'>
             <h1 className="h1 mb-0">Bookster</h1>
             <p className="h5 ms-1 mt-0">Your online bookshelf</p>
-            </div>
+          </div>
         </div>
       </header>
       <InputForm />

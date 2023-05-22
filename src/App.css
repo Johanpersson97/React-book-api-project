@@ -26,6 +26,10 @@ body {
   width: 400px;
 }
 
-#book_icon {
+#bookIcon {
   max-width: 100px;
+}
+
+#toggleBookshelfButton {
+  width: 400px;
 }
