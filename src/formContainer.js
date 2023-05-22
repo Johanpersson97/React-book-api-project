@@ -36,12 +36,13 @@ const InputForm = () => {
 
   return (
     <div>
-      <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
-      <button onClick={handleSearch}>Sök</button>
+      <div class="mt-5 mx-auto w-50">
+        <input id="search-field" class="form-control form-control-lg"  type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
 
-      <ul>
-        {books.map(book => (<Book key={book.id} item= {book}/>))}
-      </ul>
+        <ul id="movie-list" class="list-group mt-3">
+          {books.map(book => (<Book key={book.id} item= {book}/>))}
+        </ul>
+      </div>
 
     
 
