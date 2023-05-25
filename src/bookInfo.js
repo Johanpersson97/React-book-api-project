@@ -6,6 +6,21 @@ export default function BookInfo(props) {
   const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
   const authors = props.item.authors;
   console.log(authors)
+
+
+  const SaveBook = () => {
+    const storedBooks = localStorage.getItem('books');
+    const books = storedBooks ? JSON.parse(storedBooks) : [];
+
+    // Lägg till den aktuella boken i listan
+    books.push(props.item);
+
+    // Spara den uppdaterade listan med böcker i localStorage
+    localStorage.setItem('books', JSON.stringify(books));
+
+    alert('The book is saved to your bookshelf!');
+  };
+  
   return (
     <div>
       <div className="modal" id="bookModal" role="dialog" tabindex="-1" style={{ display: "block" }}>
