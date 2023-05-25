@@ -54,7 +54,7 @@ const InputForm = () => {
 
         <ul id="book-list" className="list-group mt-3">
           {books.map(book => (
-            <Book key={book.id} item={book} />
+            <Book key={book.id} item={book} books={newBooks}/>
           ))}
         </ul>
       </div>
