@@ -27,12 +27,14 @@ const InputForm = () => {
 
         var newId = books.length > 0 ? books[books.length - 1].id + 1 : 1;
         const newBooks = books.map(book => ({
-          id: newId++,
+          id: newId,
           title: book.title,
           authors: book.authors,
           publishedDate: book.publishedDate,
           img: book.imageLinks?.thumbnail,
-          smallImg: book.imageLinks?.smallThumbnail
+          smallImg: book.imageLinks?.smallThumbnail,
+          grade: 0,
+          hasRead: false
         }));
 
         setBooks(newBooks);
