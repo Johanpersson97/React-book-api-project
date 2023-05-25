@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Bookshelf from "./bookshelf"
 
 const ToggleBookshelf = () => {
+
+  const [books, setBooks] = useState([]);
+
+  const handleRetrieveBooks = () => {
+    const storedBooks = localStorage.getItem('books');
+    const parsedBooks = JSON.parse(storedBooks) || [];
+    setBooks(parsedBooks);
+  };
+
+
   return (
     <div>
-      <button className="btn btn-secondary mt-2 p-2 d-flex align-items-center" aria-hidden="true" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+      <button className="btn btn-secondary mt-2 p-2 d-flex align-items-center" aria-hidden="true" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onClick={handleRetrieveBooks}>
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         <h5 className="d-inline my-0 mx-3">Bookshelf</h5>
       </button>
