@@ -11,11 +11,16 @@ export default function BookInfo(props) {
     const storedBooks = localStorage.getItem('books');
     const books = storedBooks ? JSON.parse(storedBooks) : [];
 
-    // Lägg till den aktuella boken i listan
-    books.push(props.item);
-
-    // Spara den uppdaterade listan med böcker i localStorage
-    localStorage.setItem('books', JSON.stringify(books));
+    const bookExists = books.some((book) => book.title === props.item.title && book.publishedDate === props.item.publishedDate);
+    if (!bookExists) {
+      // Add book to list 
+      books.push(props.item);
+      // Save books to localstorage 
+      localStorage.setItem('books', JSON.stringify(books));
+      alert('Saved');
+    } else { 
+      alert('Already in you bookshelf!');
+    }
   };
 
   return (
@@ -27,6 +32,8 @@ export default function BookInfo(props) {
               <h1 className="modal-title" id="exampleModalLabel">{authors}</h1>
 
               <img className="me-2" src={img} />
+
+              <StarRating />
 
             </div>
             <div className="modal-footer">
