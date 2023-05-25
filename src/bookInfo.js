@@ -5,6 +5,8 @@ export default function BookInfo(props) {
 
   const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
   const authors = props.item.authors;
+  const bookInfo = props.item.bookInfo;
+  
   console.log(authors)
 
   const SaveBook = () => {
@@ -32,6 +34,7 @@ export default function BookInfo(props) {
               <h1 className="modal-title" id="exampleModalLabel">{authors}</h1>
 
               <img className="me-2" src={img} />
+              <p> {bookInfo}</p>
 
               <StarRating />
 
