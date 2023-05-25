@@ -23,6 +23,7 @@ const InputForm = () => {
       .then(response => response.json())
       .then(data => {
         const books = data.items.map(item => item.volumeInfo);
+        console.log(books)
 
         var newId = books.length > 0 ? books[books.length - 1].id + 1 : 1;
         const newBooks = books.map(book => ({

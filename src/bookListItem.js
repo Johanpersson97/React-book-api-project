@@ -3,11 +3,10 @@ import React from 'react';
 
 
 export default function Book(props) {
-
   return (
     <div>
       <li className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center">
-        <img className="me-2" src="" />
+        <img className="me-2" src={props.item.img} />
         <div className="d-flex flex-column">
           <p className="m-0">
             {props.item.title}
