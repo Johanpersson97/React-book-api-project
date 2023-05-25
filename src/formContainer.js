@@ -24,17 +24,35 @@ const InputForm = () => {
       .then(data => {
         const books = data.items.map(item => item.volumeInfo);
         console.log(books)
-
+ 
+        const newBooks = books.map((book) => {
+          let trimmedAuthors;
         
-        const newBooks = books.map(book => ({
-          title: book.title,
-          authors: book.authors,
-          publishedDate: book.publishedDate,
-          img: book.imageLinks?.thumbnail,
-          smallImg: book.imageLinks?.smallThumbnail,
-          grade: 0,
-          hasRead: false
-        }));
+          if (book.authors) {
+            // Kolla om det finns flera författare
+            if (Array.isArray(book.authors)) {
+              trimmedAuthors = book.authors.join(", ");
+            } else {
+              // Om det bara finns en författare, använd författarens namn direkt
+              trimmedAuthors = book.authors;
+            }
+          } else {
+            //Om det ej finns författare returneras en tom sträng 
+            trimmedAuthors = "";
+          }
+        
+          return {
+            title: book.title,
+            authors: trimmedAuthors,
+            publishedDate: book.publishedDate,
+            img: book.imageLinks?.thumbnail,
+            smallImg: book.imageLinks?.smallThumbnail,
+            bookInfo: book.description,
+            grade: 0,
+            hasRead: false,
+          };
+        });
+        
 
         setBooks(newBooks);
       })
