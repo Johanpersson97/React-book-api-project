@@ -9,7 +9,7 @@ const HasReadButton = () => {
   <div className="form-check">
     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
     <label className="form-check-label" for="flexCheckDefault">
-    Har Läst
+    Lägg till i bokhylla
     </label>
   </div>
   );
