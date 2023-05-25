@@ -1,8 +1,9 @@
 import React from 'react';
+import StarRating from './rating';
 
 
 export default function BookInfo(props) {
-   
+  
     const img= props.item.img;
     const authors = props.item.authors;
     console.log(authors)
@@ -14,10 +15,9 @@ export default function BookInfo(props) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title"> </h5>
-             
+            
               
             </div>
-  
             <div className="modal-body">
               
               <p>{authors}</p>
@@ -34,5 +34,4 @@ export default function BookInfo(props) {
       </div>
     );
   }
-
 
