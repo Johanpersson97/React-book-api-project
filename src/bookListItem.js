@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-const undefinedImg = "./undefined.png"
 export default function Book(props) {
   return (
     <div>
