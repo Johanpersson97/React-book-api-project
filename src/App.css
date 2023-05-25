@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 body {
   background-color: #282c34;
   color: white;
@@ -33,4 +18,12 @@ body {
 #toggleBookshelfButton {
   width: 400px;
   height: 62px;
+}
+
+.small-image {
+  max-width: 80px;
+}
+
+.offcanvas {
+  min-width: 600px;
 }

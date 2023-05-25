@@ -31,7 +31,8 @@ const InputForm = () => {
           title: book.title,
           authors: book.authors,
           publishedDate: book.publishedDate,
-          img: book.imageLinks?.thumbnail
+          img: book.imageLinks?.thumbnail,
+          smallImg: book.imageLinks?.smallThumbnail
         }));
 
         setBooks(newBooks);
