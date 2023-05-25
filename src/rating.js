@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const StarRating = () => {
+const StarRating = ({ grade, setGrade }) => {
   const [rating, setRating] = useState(0);
   const [bookRating, setBookRating] = useState(0);
-  const [showStars, setShowStars] = useState(false); // New state for checkbox
+  const [showStars, setShowStars] = useState(false);
+
+  useEffect(() => {
+    setRating(grade); // Set initial rating to the grade from props
+    setBookRating(grade);
+  }, [grade]);
 
   const handleStarHover = (starIndex) => {
     setRating(starIndex);
@@ -15,20 +20,20 @@ const StarRating = () => {
 
   const handleStarClick = () => {
     setBookRating(rating);
-    console.log(rating);
+    setGrade(rating); // Update the grade in the parent component
   };
 
   const handleCheckboxChange = () => {
-    setShowStars(!showStars); // Toggle the checkbox state
+    setShowStars(!showStars);
   };
 
   return (
     <div>
       <label>
         <input type="checkbox" checked={showStars} onChange={handleCheckboxChange} />
-        Show Stars
+        Har läst
       </label>
-      {showStars && ( // Render stars only if showStars is true
+      {showStars && (
         <div>
           {[1, 2, 3, 4, 5].map((starIndex) => (
             <span
