@@ -1,7 +1,6 @@
 import React from 'react';
 import StarRating from './rating';
 
-
 export default function BookInfo(props) {
 
   const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
