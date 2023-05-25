@@ -1,9 +1,9 @@
-import React , { useState } from 'react';
-import BookInfo from './bookInfo'; 
+import React, { useState } from 'react';
+import BookInfo from './bookInfo';
 
 
 export default function Book(props) {
-  
+
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -14,10 +14,14 @@ export default function Book(props) {
     setShowModal(false);
   };
 
+  const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
+
   return (
     <div>
       <li className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center" onClick={handleOpenModal}>
-        <img className="me-2" src={props.item.img} />
+        <img className="me-2 small-image"
+          src={img}
+          alt="Book cover" />
         <div className="d-flex flex-column">
           <p className="m-0">
             {props.item.title}
