@@ -7,7 +7,6 @@ export default function BookInfo(props) {
   const authors = props.item.authors;
   console.log(authors)
 
-
   const SaveBook = () => {
     const storedBooks = localStorage.getItem('books');
     const books = storedBooks ? JSON.parse(storedBooks) : [];
@@ -17,29 +16,23 @@ export default function BookInfo(props) {
 
     // Spara den uppdaterade listan med böcker i localStorage
     localStorage.setItem('books', JSON.stringify(books));
-
-    alert('The book is saved to your bookshelf!');
   };
-  
+
   return (
     <div>
       <div className="modal" id="bookModal" role="dialog" tabindex="-1" style={{ display: "block" }}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content bg-dark">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div className="modal-body">
+              <h1 className="modal-title" id="exampleModalLabel">{authors}</h1>
 
-              <p>{authors}</p>
               <img className="me-2" src={img} />
 
             </div>
             <div className="modal-footer">
-                <button type="button" className="btn btn-primary" onClick={SaveBook}>
+              <button type="button" tabindex="-1"className="btn btn-primary" onClick={SaveBook} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
                 Save to bookshelf
-                </button>
+              </button>
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={props.closeModal}>Close</button>
             </div>
           </div>
