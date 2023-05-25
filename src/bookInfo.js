@@ -22,6 +22,9 @@ export default function BookInfo(props) {
 
             </div>
             <div className="modal-footer">
+                <button type="button" className="btn btn-primary" onClick={SaveBook}>
+                Save to bookshelf
+                </button>
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={props.closeModal}>Close</button>
             </div>
           </div>
