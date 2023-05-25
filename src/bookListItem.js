@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRating from './rating';
 
 export default function Book(props) {
   return (
@@ -18,6 +19,7 @@ export default function Book(props) {
         <span className="ms-auto me-2">
           {props.item.publishedDate}
         </span>
+        <StarRating />
       </li>
     </div>
   )
