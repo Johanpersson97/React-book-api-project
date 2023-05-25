@@ -12,13 +12,12 @@ export default function BookInfo(props) {
     const storedBooks = localStorage.getItem('books');
     const books = storedBooks ? JSON.parse(storedBooks) : [];
 
-    // Lägg till den aktuella boken i listan
+    
+    // Add book to list 
     books.push(props.item);
-
-    // Spara den uppdaterade listan med böcker i localStorage
+    // Save books to localstorage 
     localStorage.setItem('books', JSON.stringify(books));
-
-    alert('The book is saved to your bookshelf!');
+    alert('Saved');
   };
   
   return (
@@ -35,6 +34,8 @@ export default function BookInfo(props) {
               <p>{authors}</p>
               <img className="me-2" src={img} />
 
+              <StarRating />
+              
             </div>
             <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={SaveBook}>
