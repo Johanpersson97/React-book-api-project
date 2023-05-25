@@ -12,12 +12,16 @@ export default function BookInfo(props) {
     const storedBooks = localStorage.getItem('books');
     const books = storedBooks ? JSON.parse(storedBooks) : [];
 
-    
-    // Add book to list 
-    books.push(props.item);
-    // Save books to localstorage 
-    localStorage.setItem('books', JSON.stringify(books));
-    alert('Saved');
+    const bookExists = books.some((book) => book.title === props.item.title && book.publishedDate === props.item.publishedDate);
+    if (!bookExists) {
+      // Add book to list 
+      books.push(props.item);
+      // Save books to localstorage 
+      localStorage.setItem('books', JSON.stringify(books));
+      alert('Saved');
+    } else { 
+      alert('Already in you bookshelf!');
+    }
   };
   
   return (
@@ -35,7 +39,7 @@ export default function BookInfo(props) {
               <img className="me-2" src={img} />
 
               <StarRating />
-              
+
             </div>
             <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={SaveBook}>
