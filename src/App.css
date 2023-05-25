@@ -27,3 +27,11 @@ body {
 .offcanvas {
   min-width: 600px;
 }
+
+.star {
+  color: rgba(0, 0, 0, 0.129);
+}
+
+.active {
+  color: gold;
+}
