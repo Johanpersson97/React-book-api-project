@@ -2,11 +2,13 @@ import React from 'react';
 
 
 
+const undefinedImg = "./undefined.png"
 export default function Book(props) {
   return (
     <div>
       <li className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center">
-        <img className="me-2 small-image" src={props.item.smallImg !== undefined ? props.item.smallImg : './undefined.png'}
+        <img className="me-2 small-image"
+          src={props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")}
           alt="Book cover" />
         <div className="d-flex flex-column">
           <p className="m-0">
