@@ -18,10 +18,11 @@ const Bookshelf = () => {
   };
 
   const handleRemoveBook = (book) => {
-    const updatedBooks = books.filter((b) => b.id !== book.id);
+    const updatedBooks = books.filter((b) => b.title !== book.title);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     setSelectedBook(null);
   };
+
 
   return (
     <div>
@@ -57,7 +58,11 @@ const Bookshelf = () => {
             <div className="modal-content bg-dark">
               <div className="modal-body">
                 <h1 className="modal-title" id="exampleModalLabel">{selectedBook.authors}</h1>
-                <img className="me-2" src={selectedBook.smallImg} alt="Book cover" />
+                <img
+                  className="me-2 small-image"
+                  src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")}
+                  alt="Book cover"
+                />
                 <p>Grade: {selectedBook.grade}</p>
               </div>
               <div className="modal-footer">
