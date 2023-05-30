@@ -62,83 +62,6 @@ body {
   cursor: context-menu;
 }
 
-._input-field {
-  width: 50vw;
-  height: 4rem;
-  font-size: 1.3rem;
-}
-
-.btn-create-playlist:hover,
-.btn-create-playlist:active {
-  background-color: rgb(25, 230, 140) !important;
-  color: black;
-  transition: none;
-}
-
-.btn-full-recipe:hover,
-.btn-full-recipe:active {
-  background-color: rgb(236, 67, 25) !important;
-  color: white !important;
-  transition: none;
-}
-
-._slider {
-  -webkit-appearance: none;
-  border-radius: 10px;
-  background: #000000;
-  outline: none;
-  cursor: pointer;
-  z-index: 0;
-}
-
-._slider-lg {
-  width: 380px;
-  height: 13px;
-}
-
-._slider-sm {
-  width: 340px;
-  height: 13px;
-}
-
-._slider::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  left: -3px;
-  border-radius: 50%;
-  z-index: -1;
-}
-
-._slider-lg::before {
-  box-shadow: 15px 3px 0 rgb(25, 230, 140), 197px 3px 0 rgb(25, 230, 140),
-    380px 3px 0 rgb(25, 230, 140);
-}
-
-._slider-sm::before {
-  box-shadow: 7px 3px 0 rgb(25, 230, 140), 169px 3px 0 rgb(25, 230, 140),
-    332px 3px 0 rgb(25, 230, 140);
-}
-
-._slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: black;
-  outline: 5px solid rgb(25, 230, 140);
-  cursor: grab;
-}
-
-._slider::-moz-range-thumb {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: black;
-  outline: 5px solid rgb(25, 230, 140);
-}
-
 ._button {
   width: 239px;
   height: 56px;
@@ -147,15 +70,6 @@ body {
 ._button-round {
   width: 50px;
   height: 50px;
-}
-
-._hover-red:hover {
-  background-color: rgb(236, 67, 25) !important;
-}
-
-._hover-white:hover {
-  background-color: rgb(255, 255, 255) !important;
-  color: black !important;
 }
 
 /* width */

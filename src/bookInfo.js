@@ -26,7 +26,7 @@ export default function BookInfo(props) {
 
   return (
     <div>
-      <div className="modal" id="bookModal" role="dialog" tabIndex="-1" style={{ display: "block" }}>
+      <div className="modal text-white" id="bookModal" role="dialog" tabIndex="-1" style={{ display: "block" }}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content bg-dark">
             <div className="modal-body">
