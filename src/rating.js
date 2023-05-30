@@ -23,17 +23,10 @@ const StarRating = ({ grade, setGrade }) => {
     setGrade(rating); // Update the grade in the parent component
   };
 
-  const handleCheckboxChange = () => {
-    setShowStars(!showStars);
-  };
+
 
   return (
-    <div>
-      <label>
-        <input type="checkbox" checked={showStars} onChange={handleCheckboxChange} />
-        Already read
-      </label>
-      {showStars && (
+
         <div>
           {[1, 2, 3, 4, 5].map((starIndex) => (
             <span
@@ -47,9 +40,6 @@ const StarRating = ({ grade, setGrade }) => {
             </span>
           ))}
         </div>
-      )}
-    </div>
-  );
-};
+)};
 
 export default StarRating;
