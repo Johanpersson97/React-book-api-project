@@ -16,8 +16,11 @@ export default function BookInfo(props) {
       books.push(newBook);
       localStorage.setItem('books', JSON.stringify(books));
       alert('Saved');
+      props.closeModal(); // stäng modal efter alert
+      
     } else {
       alert('Already in your bookshelf!');
+      props.closeModal(); // stäng modal efter alert
     }
   };
 
@@ -36,6 +39,7 @@ export default function BookInfo(props) {
               )}
               <p>Author: {props.item.authors}</p>
               <p>Published: {props.item.publishedDate}</p>
+              <p>Already read the book? Rate it before saving: </p>
               <StarRating grade={grade} setGrade={setGrade} />
               
             </div>
