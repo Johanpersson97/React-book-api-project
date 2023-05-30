@@ -132,18 +132,13 @@ const Bookshelf = () => {
 
                 {selectedBook.grade !== 0 && (
                 <p>Grade: {selectedBook.grade}</p>
-                ) }
-
-                <div>
-                  <StarRating grade={newGrade} setGrade={setNewGrade} />
-                  <button type="button" className="btn btn-primary m-2" onClick={handleUpdateGrade}>
-                    Update Grade
-                  </button>
-                </div>
- 
-
+                ) }   
+                <StarRating grade={newGrade} setGrade={setNewGrade} />
               </div>
               <div className="modal-footer">
+                <button type="button" className="btn btn-primary" onClick={handleUpdateGrade}>
+                    Update Grade
+                 </button>
                 <button type="button" className="btn btn-danger" onClick={() => handleRemoveBook(selectedBook)}>
                   Remove from Bookshelf
                 </button>
