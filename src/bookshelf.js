@@ -78,13 +78,13 @@ const Bookshelf = () => {
 
   return (
     <div>
-      <div className="d-flex justify-content-between _book">
+      <div className="d-flex justify-content-between _book _ls-1">
         <div>
           <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
             Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}
           </button>
         </div>
-        <div className="d-flex justify-content-end align-self-end">
+        <div className="d-flex justify-content-end align-self-end text-nowrap">
           <label>
             <input className="me-1" type="checkbox" checked={showUnread} onChange={handleToggleUnread} />
             Show Unread Books
