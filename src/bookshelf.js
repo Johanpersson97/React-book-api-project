@@ -9,7 +9,11 @@ const Bookshelf = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
-  const [newGrade, setNewGrade] = useState(0); // till updategrade 
+  const [newGrade, setNewGrade] = useState(0); // till updategrade
+   
+  const [sortOrder, setSortOrder] = useState('ascending'); // Sorting order state
+  const [showUnread, setShowUnread] = useState(false); // Checkbox state for unread books
+  const [showRead, setShowRead] = useState(false); // Checkbox state for read books
 
   const handleOpenModal = (book) => {
     setSelectedBook(book);
@@ -44,12 +48,54 @@ const Bookshelf = () => {
     setSelectedBook(null);
   };
 
+  const handleSortByGrade = () => {
+    const sortedBooks = [...books].sort((a, b) => {
+      if (sortOrder === 'ascending') {
+        return a.grade - b.grade;
+      } else {
+        return b.grade - a.grade;
+      }
+    });
+    setSortOrder(sortOrder === 'ascending' ? 'descending' : 'ascending');
+    localStorage.setItem('books', JSON.stringify(sortedBooks));
+  };
+
+  const handleToggleUnread = () => {
+    setShowUnread(!showUnread);
+  };
+
+  const handleToggleRead = () => {
+    setShowRead(!showRead);
+  };
+
+  // Filter books based on checkbox status
+  let filteredBooks = books;
+  if (showUnread) {
+    filteredBooks = filteredBooks.filter((book) => book.grade === 0);
+  } else if (showRead) {
+    filteredBooks = filteredBooks.filter((book) => book.grade !== 0);
+  }
 
   return (
     <div>
-      {books.length > 0 ? (
+      <div>
+        <label>
+          <input type="checkbox" checked={showUnread} onChange={handleToggleUnread} />
+          Show Unread Books
+        </label>
+        <label>
+          <input type="checkbox" checked={showRead} onChange={handleToggleRead} />
+          Show Read Books
+        </label>
+      </div>
+      <div>
+        <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
+          Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}
+        </button>
+      </div>
+      {filteredBooks.length > 0 ? (
         <ul>
-          {books.map((book) => (
+          {filteredBooks.map((book) => (
             <li
               key={book.id}
               className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center"
