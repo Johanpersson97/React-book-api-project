@@ -28,7 +28,7 @@ export default function BookInfo(props) {
           <div className="modal-content bg-dark">
             <div className="modal-body">
               <h1 className="modal-title" id="exampleModalLabel">{authors}</h1>
-              <img className="me-2" src={img} />
+              <img className="me-2" src={img} alt='Book Cover' />
               <StarRating grade={grade} setGrade={setGrade} />
             </div>
             <div className="modal-footer">
