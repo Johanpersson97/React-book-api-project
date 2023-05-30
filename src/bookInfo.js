@@ -3,7 +3,7 @@ import StarRating from './rating';
 
 export default function BookInfo(props) {
   const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png");
-  const authors = props.item.authors;
+  
   const [grade, setGrade] = useState(0); // Add state for grade
 
   const SaveBook = () => {
@@ -27,8 +27,14 @@ export default function BookInfo(props) {
         <div className="modal-dialog modal-lg">
           <div className="modal-content bg-dark">
             <div className="modal-body">
-              <h1 className="modal-title" id="exampleModalLabel">{authors}</h1>
-              <img className="me-2" src={img} />
+              <h1 className="modal-title" id="exampleModalLabel">{props.item.title}</h1>
+              <img className="me-2" src={img} alt="book cover" />
+              {props.item.bookInfo ? ( 
+              <p>{props.item.bookInfo}</p>
+              ) : (
+              <p> Book info not found. </p>
+              )}
+        
               <StarRating grade={grade} setGrade={setGrade} />
             </div>
             <div className="modal-footer">
