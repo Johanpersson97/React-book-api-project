@@ -31,7 +31,7 @@ const StarRating = ({ grade, setGrade }) => {
     <div>
       <label>
         <input type="checkbox" checked={showStars} onChange={handleCheckboxChange} />
-        Har läst
+        Already read
       </label>
       {showStars && (
         <div>
