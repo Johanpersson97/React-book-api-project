@@ -78,23 +78,25 @@ const Bookshelf = () => {
 
   return (
     <div>
-      <div>
-        <label>
-          <input type="checkbox" checked={showUnread} onChange={handleToggleUnread} />
-          Show Unread Books
-        </label>
-        <label>
-          <input type="checkbox" checked={showRead} onChange={handleToggleRead} />
-          Show Read Books
-        </label>
-      </div>
-      <div>
-        <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
-          Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}
-        </button>
+      <div className="d-flex justify-content-between">
+        <div>
+          <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
+            Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}
+          </button>
+        </div>
+        <div className="d-flex justify-content-end align-self-end">
+          <label>
+            <input className="me-1" type="checkbox" checked={showUnread} onChange={handleToggleUnread} />
+            Show Unread Books
+          </label>
+          <label>
+            <input className="ms-3 me-1" type="checkbox" checked={showRead} onChange={handleToggleRead} />
+            Show Read Books
+          </label>
+        </div>
       </div>
       {filteredBooks.length > 0 ? (
-        <ul>
+        <ul className="p-0 mt-3">
           {filteredBooks.map((book) => (
             <li
               key={book.id}
