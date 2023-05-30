@@ -23,10 +23,11 @@ const Bookshelf = () => {
 
 
   const handleRemoveBook = (book) => {
-    const updatedBooks = books.filter((b) => b.id !== book.id);
+    const updatedBooks = books.filter((b) => b.title !== book.title);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     setSelectedBook(null);
   };
+
 
   return (
     <div>
