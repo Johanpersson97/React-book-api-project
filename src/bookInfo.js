@@ -34,8 +34,10 @@ export default function BookInfo(props) {
               ) : (
               <p> Book info not found. </p>
               )}
-        
+              <p>Author: {props.item.authors}</p>
+              <p>Published: {props.item.publishedDate}</p>
               <StarRating grade={grade} setGrade={setGrade} />
+              
             </div>
             <div className="modal-footer">
               <button type="button" tabIndex="-1" className="btn btn-primary" onClick={SaveBook} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
