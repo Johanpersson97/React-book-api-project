@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StarRating from './rating';
 
 const Bookshelf = () => {
   // Retrieve books from local storage
@@ -8,6 +9,8 @@ const Bookshelf = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
+  const [grade, setGrade] = useState(0); // till grade 
+
   const handleOpenModal = (book) => {
     setSelectedBook(book);
     setShowModal(true);
@@ -16,6 +19,8 @@ const Bookshelf = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+
 
   const handleRemoveBook = (book) => {
     const updatedBooks = books.filter((b) => b.id !== book.id);
@@ -61,7 +66,16 @@ const Bookshelf = () => {
                 <p>{selectedBook.bookInfo}</p>
                 <p>Author: {selectedBook.authors}</p>
                 <p>Published: {selectedBook.publishedDate}</p>
-                {selectedBook.grade !== 0 && <p>Grade: {selectedBook.grade}</p>}
+
+                {selectedBook.grade !== 0 ? (
+                <p>Grade: {selectedBook.grade}</p>
+                ) : (
+                <StarRating grade={grade} setGrade={setGrade} />
+               
+                )}
+
+ 
+
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-danger" onClick={() => handleRemoveBook(selectedBook)}>
