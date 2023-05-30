@@ -78,7 +78,7 @@ const Bookshelf = () => {
 
   return (
     <div>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between _book">
         <div>
           <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
             Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}

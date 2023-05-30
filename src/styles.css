@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "gothammedium";
+}
+
 /* Font weight. black = fetast, thin = tunnast */
 ._black {
   font-family: "gothamblack";
