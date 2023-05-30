@@ -41,7 +41,7 @@ const Bookshelf = () => {
               <div className="d-flex flex-column">
                 <p className="m-0">{book.title}</p>
                 <p className="m-0">{book.authors}</p>
-                {book.grade !== undefined && <p className="m-0">Grade: {book.grade}</p>}
+                {book.grade !== 0 && <p className="m-0">Grade: {book.grade}</p>}
               </div>
               <span className="ms-auto me-2">{book.publishedDate}</span>
             </li>
@@ -61,7 +61,7 @@ const Bookshelf = () => {
                 <p>{selectedBook.bookInfo}</p>
                 <p>Author: {selectedBook.authors}</p>
                 <p>Published: {selectedBook.publishedDate}</p>
-                <p>Grade: {selectedBook.grade}</p>
+                {selectedBook.grade !== 0 && <p>Grade: {selectedBook.grade}</p>}
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-danger" onClick={() => handleRemoveBook(selectedBook)}>
