@@ -96,7 +96,7 @@ const Bookshelf = () => {
         </div>
       </div>
       {filteredBooks.length > 0 ? (
-        <ul className="p-0 mt-3">
+        <ul className="p-0 mt-3 list-group">
           {filteredBooks.map((book) => (
             <li
               key={book.id}

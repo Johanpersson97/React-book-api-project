@@ -17,8 +17,8 @@ export default function Book(props) {
   const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
 
   return (
-    <div>
-      <li className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center" onClick={handleOpenModal}>
+    <div className="list-group-item list-group-item-action list-group-item-dark p-0">
+      <li className="d-flex p-0 align-items-center" onClick={handleOpenModal}>
         <img className="me-2 small-image"
           src={img}
           alt="Book cover" />
