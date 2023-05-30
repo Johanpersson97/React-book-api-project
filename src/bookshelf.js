@@ -56,8 +56,11 @@ const Bookshelf = () => {
           <div className="modal-dialog modal-lg">
             <div className="modal-content bg-dark">
               <div className="modal-body">
-                <h1 className="modal-title" id="exampleModalLabel">{selectedBook.authors}</h1>
+                <h1 className="modal-title" id="exampleModalLabel">{selectedBook.title}</h1>
                 <img className="me-2" src={selectedBook.smallImg} alt="Book cover" />
+                <p>{selectedBook.bookInfo}</p>
+                <p>Author: {selectedBook.authors}</p>
+                <p>Published: {selectedBook.publishedDate}</p>
                 <p>Grade: {selectedBook.grade}</p>
               </div>
               <div className="modal-footer">
