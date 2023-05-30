@@ -9,7 +9,7 @@ const Bookshelf = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
-  const [grade, setGrade] = useState(0); // till grade 
+  const [newGrade, setNewGrade] = useState(0); // till updategrade 
 
   const handleOpenModal = (book) => {
     setSelectedBook(book);
@@ -20,7 +20,23 @@ const Bookshelf = () => {
     setShowModal(false);
   };
 
-
+  const handleUpdateGrade = () => {
+    const updatedBooks = books.map((book) => {
+      if (book.id === selectedBook.id) {
+        return { ...book, grade: newGrade };
+      }
+      return book;
+    });
+  
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+    setSelectedBook((prevSelectedBook) => {
+      if (prevSelectedBook && prevSelectedBook.id === selectedBook.id) {
+        return { ...prevSelectedBook, grade: newGrade };
+      }
+      return prevSelectedBook;
+    });
+    setShowModal(false); // Stäng modalen efter att betyget har uppdaterats
+  };
 
   const handleRemoveBook = (book) => {
     const updatedBooks = books.filter((b) => b.title !== book.title);
@@ -68,13 +84,16 @@ const Bookshelf = () => {
                 <p>Author: {selectedBook.authors}</p>
                 <p>Published: {selectedBook.publishedDate}</p>
 
-                {selectedBook.grade !== 0 ? (
+                {selectedBook.grade !== 0 && (
                 <p>Grade: {selectedBook.grade}</p>
-                ) : (
-                <StarRating grade={grade} setGrade={setGrade} />
-               
-                )}
+                ) }
 
+                <div>
+                  <StarRating grade={newGrade} setGrade={setNewGrade} />
+                  <button type="button" className="btn btn-primary m-2" onClick={handleUpdateGrade}>
+                    Update Grade
+                  </button>
+                </div>
  
 
               </div>
