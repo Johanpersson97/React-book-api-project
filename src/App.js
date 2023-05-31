@@ -4,6 +4,8 @@ import "./webfontkit/stylesheet.css"
 import ToggleBookshelf from "./toggleBookshelf";
 import InputForm from "./formContainer";
 
+
+// Här kör vi vår app och anrapar de olika komponenterna
 function App() {
   return (
     <div>

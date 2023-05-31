@@ -6,16 +6,19 @@ export default function Book(props) {
 
   const [showModal, setShowModal] = useState(false);
 
+  // Sätter modal som sann
   const handleOpenModal = () => {
     setShowModal(true);
   };
 
+  // Sätter modal som falsk
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
-  const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png")
+  const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png") // om ingen bild finns, visa denna bilden istället
 
+  // Returnerar information om boken i en modal
   return (
     <div className="list-group-item list-group-item-action list-group-item-dark p-0">
       <li className="d-flex p-0 align-items-center" onClick={handleOpenModal}>

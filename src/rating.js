@@ -4,23 +4,27 @@ const StarRating = ({ grade, setGrade }) => {
   const [rating, setRating] = useState(0);
   const [bookRating, setBookRating] = useState(0);
   const [showStars, setShowStars] = useState(false);
-
+  
+  // Sätter det ursprungliga värdet på betyg
   useEffect(() => {
-    setRating(grade); // Set initial rating to the grade from props
+    setRating(grade); 
     setBookRating(grade);
   }, [grade]);
 
+  // Ändrar färg på stjärnorna när muspekaren hålls över dem
   const handleStarHover = (starIndex) => {
     setRating(starIndex);
   };
 
+  // Ändrar färg på stjärnorna så de visar det valda betyget när man inte längre har muspekaren över dem
   const handleStarLeave = () => {
     setRating(bookRating);
   };
-
+  
+  // Uppdatera betyget i förälder-komponenten
   const handleStarClick = () => {
     setBookRating(rating);
-    setGrade(rating); // Update the grade in the parent component
+    setGrade(rating);
   };
 
 

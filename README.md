@@ -1,3 +1,30 @@
+# Välkommen till React-projektet Bookster!
+
+## Varför React?
+
+Vi har valt att arbeta med React då vi inte hade så mycket tid på oss till projektet och
+dessutom en tenta i ett annat ämne som tog upp mycket av vår tid. Därav ville vi inte börja på
+något helt nytt - utan använda våra befintliga kunskaper för att sätta upp en miljö snabbt och smärtfritt.
+Det är såklart en bonus att React även är ett av de mest populära ramverken och god dokumentation finns att tillgå
+på internet.
+
+## Varför inte något annat Ramverk?
+
+Som nämnt ovan kände sig gruppen mest bekväm med React och det hade säkerligen gått att göra ett lika bra
+projekt med något av de andra stora ramverken. Tids- och stressfaktorn i det hela var de bidragande faktorerna till varför gruppen
+inte valde ett annat ramverk.
+
+# Köra Programmet
+
+## Klona eller ladda ner projektmappen
+
+1. öppna en terminal i projektmappen
+2. skriv "npm install" tryck sedan enter
+3. När innehållet har laddats ner, skriv "npm start" och tryck enter för att starta en lokal server.
+4. Ett webbläsarfönster bör öppnas automatiskt när det föregående kommandot har exekverats, om inte, se vilka vägar som är tillgänliga i terminalen (det bör vara en ip-adress som går att klicka på med "ctrl+click").
+
+Skulle dessa instruktioner inte fungera, går det bra att följa de officiella instruktionerna nedan för att köra programmet:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
