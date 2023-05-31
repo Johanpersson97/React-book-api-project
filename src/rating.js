@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react';
 const StarRating = ({ grade, setGrade }) => {
   const [rating, setRating] = useState(0);
   const [bookRating, setBookRating] = useState(0);
-  const [showStars, setShowStars] = useState(false);
-  
+
   // Sätter det ursprungliga värdet på betyg
   useEffect(() => {
-    setRating(grade); 
+    setRating(grade);
     setBookRating(grade);
   }, [grade]);
 
@@ -20,7 +19,7 @@ const StarRating = ({ grade, setGrade }) => {
   const handleStarLeave = () => {
     setRating(bookRating);
   };
-  
+
   // Uppdatera betyget i förälder-komponenten
   const handleStarClick = () => {
     setBookRating(rating);
@@ -31,19 +30,20 @@ const StarRating = ({ grade, setGrade }) => {
 
   return (
 
-        <div>
-          {[1, 2, 3, 4, 5].map((starIndex) => (
-            <span
-              key={starIndex}
-              className={`h1 star ${starIndex <= (rating || bookRating) ? 'active' : ''}`}
-              onMouseEnter={() => handleStarHover(starIndex)}
-              onMouseLeave={handleStarLeave}
-              onClick={handleStarClick}
-            >
-              ★
-            </span>
-          ))}
-        </div>
-)};
+    <div>
+      {[1, 2, 3, 4, 5].map((starIndex) => (
+        <span
+          key={starIndex}
+          className={`h1 star ${starIndex <= (rating || bookRating) ? 'active' : ''}`}
+          onMouseEnter={() => handleStarHover(starIndex)}
+          onMouseLeave={handleStarLeave}
+          onClick={handleStarClick}
+        >
+          ★
+        </span>
+      ))}
+    </div>
+  )
+};
 
 export default StarRating;
