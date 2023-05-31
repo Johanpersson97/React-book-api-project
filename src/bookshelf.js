@@ -10,7 +10,7 @@ const Bookshelf = () => {
   const [selectedBook, setSelectedBook] = useState(null);
 
   const [newGrade, setNewGrade] = useState(0); // till updategrade
-   
+
   const [sortOrder, setSortOrder] = useState('ascending'); // Sorting order state
   const [showUnread, setShowUnread] = useState(false); // Checkbox state for unread books
   const [showRead, setShowRead] = useState(false); // Checkbox state for read books
@@ -31,7 +31,7 @@ const Bookshelf = () => {
       }
       return book;
     });
-  
+
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     setSelectedBook((prevSelectedBook) => {
       if (prevSelectedBook && prevSelectedBook.id === selectedBook.id) {
@@ -59,7 +59,7 @@ const Bookshelf = () => {
     setSortOrder(sortOrder === 'ascending' ? 'descending' : 'ascending');
     localStorage.setItem('books', JSON.stringify(sortedBooks));
   };
-  
+
   const handleToggleUnread = () => {
     setShowUnread(true);
     setShowRead(false);
@@ -81,14 +81,14 @@ const Bookshelf = () => {
     filteredBooks = filteredBooks.filter((book) => book.grade === 0);
   } else if (showRead) {
     filteredBooks = filteredBooks.filter((book) => book.grade !== 0);
-  } 
+  }
 
   return (
     <div>
       <div className="d-flex justify-content-between _book _ls-1">
         <div>
           <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Sort your books
+            Sort your books
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><button className="dropdown-item" onClick={handleShowAllBooks} type="button">Show all books</button></li>
@@ -130,27 +130,33 @@ const Bookshelf = () => {
           <div className="modal-dialog modal-lg">
             <div className="modal-content bg-dark">
               <div className="modal-body">
-                <h1 className="modal-title" id="exampleModalLabel">{selectedBook.title}</h1>
-                <img className="me-2" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
-
-                {selectedBook.bookInfo ? ( 
-                <p>{selectedBook.bookInfo}</p>
-                ) : (
-                <p> Book info not found. </p>
-                )}
-
-                <p>Author: {selectedBook.authors}</p>
-                <p>Published: {selectedBook.publishedDate}</p>
-
-                {selectedBook.grade !== 0 && (
-                <p>Grade: {selectedBook.grade}</p>
-                ) }   
-                <StarRating grade={newGrade} setGrade={setNewGrade} />
+                <h2 className="modal-title h1" id="exampleModalLabel">{selectedBook.title}</h2>
+                <h3 className="fs-4">Author: {selectedBook.authors}</h3>
+                <p className="mt-1 _book">Published: {selectedBook.publishedDate}</p>
+                <div className="hstack">
+                  <div className="vstack d-flex">
+                    <img className="large-image me-2 align-self-start" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
+                  </div>
+                  <div className="align-self-stretch d-flex flex-column justify-content-between">
+                    {selectedBook.bookInfo ? (
+                      <p className="_book _justify fs-6 mx-2">{selectedBook.bookInfo}</p>
+                    ) : (
+                      <p className="_book _justify fs-6 mx-2"> Book info not found. </p>
+                    )}
+                    <div className="mx-2 mt-5 _book">
+                      {selectedBook.grade !== 0 && (
+                        <p className="fs-5 p-0 m-0">Grade: {selectedBook.grade}</p>
+                      )}
+                      <StarRating grade={newGrade} setGrade={setNewGrade} />
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={handleUpdateGrade}>
-                    Update Grade
-                 </button>
+                  Update Grade
+                </button>
                 <button type="button" className="btn btn-danger" onClick={() => handleRemoveBook(selectedBook)}>
                   Remove from Bookshelf
                 </button>
