@@ -12,7 +12,6 @@ const Bookshelf = () => {
 
   // till updategrade
   const [newGrade, setNewGrade] = useState(0);
-
   const [sortOrder, setSortOrder] = useState('ascending'); // Sorteringsorder-state
   const [showUnread, setShowUnread] = useState(false); // Checkbox- state för olästa böcker
   const [showRead, setShowRead] = useState(false); // Checkbox-state för lästa böcker
@@ -139,23 +138,29 @@ const Bookshelf = () => {
           <div className="modal-dialog modal-lg">
             <div className="modal-content bg-dark">
               <div className="modal-body">
-                <h1 className="modal-title" id="exampleModalLabel">{selectedBook.title}</h1>
-                <img className="me-2" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
-
-                {selectedBook.bookInfo ? (
-                  <p>{selectedBook.bookInfo}</p>
-                ) : (
-                  <p> Book info not found. </p>
-                )}
-
-                <p>Author: {selectedBook.authors}</p>
-                <p>Published: {selectedBook.publishedDate}</p>
-
-                {selectedBook.grade !== 0 && (
-                  <p>Grade: {selectedBook.grade}</p>
-                )}
-                <StarRating grade={newGrade} setGrade={setNewGrade} />
+                <h2 className="modal-title h1" id="exampleModalLabel">{selectedBook.title}</h2>
+                <h3 className="fs-4">Author: {selectedBook.authors}</h3>
+                <p className="mt-1 _book">Published: {selectedBook.publishedDate}</p>
+                <div className="hstack">
+                  <div className="vstack d-flex">
+                    <img className="large-image me-2 align-self-start" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
+                  </div>
+                  <div className="align-self-stretch d-flex flex-column justify-content-between">
+                    {selectedBook.bookInfo ? (
+                      <p className="_book _justify fs-6 mx-2">{selectedBook.bookInfo}</p>
+                    ) : (
+                      <p className="_book _justify fs-6 mx-2"> Book info not found. </p>
+                    )}
+                    <div className="mx-2 mt-5 _book">
+                      {selectedBook.grade !== 0 && (
+                        <p className="fs-5 p-0 m-0">Grade: {selectedBook.grade}</p>
+                      )}
+                      <StarRating grade={newGrade} setGrade={setNewGrade} />
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={handleUpdateGrade}>
                   Update Grade
