@@ -9,21 +9,23 @@ import InputForm from "./formContainer";
 function App() {
   return (
     <div>
-      <header className="container mt-3">
-        <div className="float-end">
-          <ToggleBookshelf />
-        </div>
-        <div className="d-flex">
+      <header className="container-fluid mt-3 d-flex flex-lg-row flex-column align-items-center justify-content-lg-between">
+
+
+        <div className="d-flex flex-lg-row flex-column">
           <img src={require("./book_icon_large.png")} id="bookIcon" alt="bookIcon" />
           <a href="" className="ms-2 text-white text-decoration-none">
             <h1 className="display-3 mb-0 _bold _ls-5">Bookster</h1>
             <p className="h5 ms-1 mt-0">Your online bookshelf</p>
           </a>
         </div>
+        <ToggleBookshelf className="" />
       </header>
+
       <main className="container">
         <InputForm />
       </main>
+
       <footer className="pt-5 my-5">
         <p className="text-center fs-5">© 2023 Bookster</p>
         <p className="text-center small _book m-0">Gustav Fristedt · Johan Persson · Melinda Ljungdell</p>

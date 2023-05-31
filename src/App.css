@@ -40,3 +40,41 @@ body {
 .active {
   color: gold;
 }
+
+/* App.css */
+
+@media screen and (max-width: 900px) {
+  /* Adjust the styles for smaller screens */
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  #bookIcon {
+    max-width: 100px;
+  }
+  
+  .display-3 {
+    font-size: 40px;
+  }
+  
+  .h5 {
+    font-size: 14px;
+  }
+  
+  .fs-5 {
+    font-size: 14px;
+  }
+  
+  .small {
+    font-size: 12px;
+  }
+
+  .w-50 {
+    width: 100% !important;
+  }
+
+  .offcanvas {
+    min-width: 100vw;
+  }
+}
