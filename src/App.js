@@ -21,7 +21,14 @@ function App() {
           </a>
         </div>
       </header>
-      <InputForm />
+      <main className="container">
+        <InputForm />
+      </main>
+      <footer className="pt-5 my-5">
+        <p className="text-center fs-5">© 2023 Bookster</p>
+        <p className="text-center small _book m-0">Gustav Fristedt · Johan Persson · Melinda Ljungdell</p>
+        <p className="text-center small _book m-0">Malmö universitet</p>
+      </footer>
     </div>
   );
 }
