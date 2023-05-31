@@ -31,21 +31,21 @@ export default function BookInfo(props) {
           <div className="modal-content bg-dark">
             <div className="modal-body">
               <h2 className="modal-title h1" id="exampleModalLabel">{props.item.title}</h2>
-              <h3 className="h4">{props.item.authors}</h3>
+              <h3 className="fs-4">{props.item.authors}</h3>
+                <p className="mt-1 _book">{props.item.publishedDate.slice(0, 4)}</p>
               <div className="hstack">
                 <div className="vstack d-flex">
-
                   <img className="large-image me-2 align-self-start" src={img} alt="book cover" />
-                  <p className="mt-1">Published: {props.item.publishedDate}</p>
                 </div>
-                <div className="d-flex flex-column justify-content-between">
+                <div className="align-self-stretch d-flex flex-column justify-content-between">
                   {props.item.bookInfo ? (
-                    <p className="_book _justify mx-2">{props.item.bookInfo}</p>
+                    <p className="_book _justify fs-6 mx-2">{props.item.bookInfo}</p>
                   ) : (
                     <p> Book info not found. </p>
                   )}
-                  <div className="mx-2 mt-5">
-                    <p>Already read the book? Rate it before saving: </p>
+                  <div className="mx-2 mt-5 _book">
+                    <p className="fs-5 p-0 m-0">Already read the book?</p>
+                    <p className="m-0">Rate it before saving!</p>
                     <StarRating grade={grade} setGrade={setGrade} />
                   </div>
                 </div>

@@ -31,7 +31,7 @@ const StarRating = ({ grade, setGrade }) => {
           {[1, 2, 3, 4, 5].map((starIndex) => (
             <span
               key={starIndex}
-              className={`h3 star ${starIndex <= (rating || bookRating) ? 'active' : ''}`}
+              className={`h1 star ${starIndex <= (rating || bookRating) ? 'active' : ''}`}
               onMouseEnter={() => handleStarHover(starIndex)}
               onMouseLeave={handleStarLeave}
               onClick={handleStarClick}
