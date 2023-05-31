@@ -59,42 +59,46 @@ const Bookshelf = () => {
     setSortOrder(sortOrder === 'ascending' ? 'descending' : 'ascending');
     localStorage.setItem('books', JSON.stringify(sortedBooks));
   };
-
+  
   const handleToggleUnread = () => {
-    setShowUnread(!showUnread);
+    setShowUnread(true);
+    setShowRead(false);
   };
 
   const handleToggleRead = () => {
-    setShowRead(!showRead);
+    setShowRead(true);
+    setShowUnread(false);
   };
 
-  // Filter books based on checkbox status
+  const handleShowAllBooks = () => {
+    setShowRead(false);
+    setShowUnread(false);
+  };
+
+  //Filter books based on grade
   let filteredBooks = books;
   if (showUnread) {
     filteredBooks = filteredBooks.filter((book) => book.grade === 0);
   } else if (showRead) {
     filteredBooks = filteredBooks.filter((book) => book.grade !== 0);
-  }
+  } 
 
   return (
     <div>
       <div className="d-flex justify-content-between _book _ls-1">
         <div>
-          <button type="button" className="btn btn-primary" onClick={handleSortByGrade}>
-            Sort by Grade {sortOrder === 'ascending' ? 'Ascending' : 'Descending'}
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Sort your books
           </button>
-        </div>
-        <div className="d-flex justify-content-end align-self-end text-nowrap">
-          <label>
-            <input className="me-1" type="checkbox" checked={showUnread} onChange={handleToggleUnread} />
-            Show Unread Books
-          </label>
-          <label>
-            <input className="ms-3 me-1" type="checkbox" checked={showRead} onChange={handleToggleRead} />
-            Show Read Books
-          </label>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" onClick={handleShowAllBooks} href="#">Show all books</a></li>
+            <li><a class="dropdown-item" onClick={handleSortByGrade} href="#">Sort by grade: {sortOrder === 'ascending' ? 'Ascending' : 'Descending'} </a></li>
+            <li><a class="dropdown-item" onClick={handleToggleUnread} href="#">Show unread books</a></li>
+            <li><a class="dropdown-item" onClick={handleToggleRead} href="#">Show read books</a></li>
+          </ul>
         </div>
       </div>
+
       {filteredBooks.length > 0 ? (
         <ul className="p-0 mt-3 list-group">
           {filteredBooks.map((book) => (
