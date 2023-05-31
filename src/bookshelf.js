@@ -87,14 +87,14 @@ const Bookshelf = () => {
     <div>
       <div className="d-flex justify-content-between _book _ls-1">
         <div>
-          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Sort your books
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" onClick={handleShowAllBooks} href="#">Show all books</a></li>
-            <li><a class="dropdown-item" onClick={handleSortByGrade} href="#">Sort by grade: {sortOrder === 'ascending' ? 'Ascending' : 'Descending'} </a></li>
-            <li><a class="dropdown-item" onClick={handleToggleUnread} href="#">Show unread books</a></li>
-            <li><a class="dropdown-item" onClick={handleToggleRead} href="#">Show read books</a></li>
+            <li><button className="dropdown-item" onClick={handleShowAllBooks} type="button">Show all books</button></li>
+            <li><button className="dropdown-item" onClick={handleSortByGrade} type="button">Sort by grade: {sortOrder === 'ascending' ? 'Ascending' : 'Descending'} </button></li>
+            <li><button className="dropdown-item" onClick={handleToggleUnread} type="button">Show unread books</button></li>
+            <li><button className="dropdown-item" onClick={handleToggleRead} type="button">Show read books</button></li>
           </ul>
         </div>
       </div>
