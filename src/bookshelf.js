@@ -124,18 +124,19 @@ const Bookshelf = () => {
       ) : (
         <p>No books found in the bookshelf.</p>
       )}
-
+      
       {showModal && selectedBook && (
         <div className="modal" id="bookModal" role="dialog" tabIndex="-1" style={{ display: "block" }}>
           <div className="modal-dialog modal-lg">
             <div className="modal-content bg-dark">
               <div className="modal-body">
                 <h2 className="modal-title h1" id="exampleModalLabel">{selectedBook.title}</h2>
-                <h3 className="fs-4">Author: {selectedBook.authors}</h3>
-                <p className="mt-1 _book">Published: {selectedBook.publishedDate}</p>
-                <div className="hstack">
-                  <div className="vstack d-flex">
+                <div className="hstack mt-2">
+                  <div className="vstack d-flex mt-1">
                     <img className="large-image me-2 align-self-start" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
+                    <h3 className="fs-4 mt-2">{selectedBook.authors}</h3>
+                    <p className="_book">{selectedBook.publishedDate.slice(0, 4)}</p>
+
                   </div>
                   <div className="align-self-stretch d-flex flex-column justify-content-between">
                     {selectedBook.bookInfo ? (
@@ -152,7 +153,6 @@ const Bookshelf = () => {
                   </div>
                 </div>
               </div>
-
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={handleUpdateGrade}>
                   Update Grade

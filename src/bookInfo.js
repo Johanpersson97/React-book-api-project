@@ -31,11 +31,11 @@ export default function BookInfo(props) {
           <div className="modal-content bg-dark">
             <div className="modal-body">
               <h2 className="modal-title h1" id="exampleModalLabel">{props.item.title}</h2>
-              <h3 className="fs-4">{props.item.authors}</h3>
-              <p className="mt-1 _book">{props.item.publishedDate.slice(0, 4)}</p>
-              <div className="hstack">
-                <div className="vstack d-flex">
+              <div className="hstack mt-2">
+                <div className="vstack d-flex mt-1">
                   <img className="large-image me-2 align-self-start" src={img} alt="book cover" />
+                  <h3 className="fs-4 mt-2">{props.item.authors}</h3>
+                  <p className="_book">{props.item.publishedDate.slice(0, 4)}</p>
                 </div>
                 <div className="align-self-stretch d-flex flex-column justify-content-between">
                   {props.item.bookInfo ? (
@@ -50,7 +50,6 @@ export default function BookInfo(props) {
                   </div>
                 </div>
               </div>
-
             </div>
             <div className="modal-footer">
               <button type="button" tabIndex="-1" className="btn btn-primary" onClick={SaveBook} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
