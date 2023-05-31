@@ -2,28 +2,32 @@ import React, { useState } from 'react';
 import StarRating from './rating';
 
 const Bookshelf = () => {
-  // Retrieve books from local storage
+  // Hämtar böcker från localstorage och parsar dessa
   const storedBooks = localStorage.getItem('books');
   const books = JSON.parse(storedBooks) || [];
 
+  // Kontrollerar modal och den valda boken
   const [showModal, setShowModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
-  const [newGrade, setNewGrade] = useState(0); // till updategrade
-   
-  const [sortOrder, setSortOrder] = useState('ascending'); // Sorting order state
-  const [showUnread, setShowUnread] = useState(false); // Checkbox state for unread books
-  const [showRead, setShowRead] = useState(false); // Checkbox state for read books
+  // till updategrade
+  const [newGrade, setNewGrade] = useState(0);
 
+  const [sortOrder, setSortOrder] = useState('ascending'); // Sorteringsorder-state
+  const [showUnread, setShowUnread] = useState(false); // Checkbox- state för olästa böcker
+  const [showRead, setShowRead] = useState(false); // Checkbox-state för lästa böcker
+
+  // Öppnar en modal med den valda boken
   const handleOpenModal = (book) => {
     setSelectedBook(book);
     setShowModal(true);
   };
 
+  // Stänger modal
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
+  // Uppdaterar bokens betyg och sparar betyget i local storage
   const handleUpdateGrade = () => {
     const updatedBooks = books.map((book) => {
       if (book.title === selectedBook.title) {
@@ -31,7 +35,7 @@ const Bookshelf = () => {
       }
       return book;
     });
-  
+
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     setSelectedBook((prevSelectedBook) => {
       if (prevSelectedBook && prevSelectedBook.id === selectedBook.id) {
@@ -42,12 +46,14 @@ const Bookshelf = () => {
     setShowModal(false); // Stäng modalen efter att betyget har uppdaterats
   };
 
+  // Tar bort den valda boken från localstorage
   const handleRemoveBook = (book) => {
     const updatedBooks = books.filter((b) => b.title !== book.title);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     setSelectedBook(null);
   };
 
+  // Sorterar efter betyg antingen stigande eller fallande
   const handleSortByGrade = () => {
     const sortedBooks = [...books].sort((a, b) => {
       if (sortOrder === 'ascending') {
@@ -59,36 +65,39 @@ const Bookshelf = () => {
     setSortOrder(sortOrder === 'ascending' ? 'descending' : 'ascending');
     localStorage.setItem('books', JSON.stringify(sortedBooks));
   };
-  
+
+  // Bestämmer att endast olästa böcker ska visas
   const handleToggleUnread = () => {
     setShowUnread(true);
     setShowRead(false);
   };
 
+  // Bestämmer att endast lästa böcker ska visas
   const handleToggleRead = () => {
     setShowRead(true);
     setShowUnread(false);
   };
 
+  // Bestämmer att alla böcker ska visas
   const handleShowAllBooks = () => {
     setShowRead(false);
     setShowUnread(false);
   };
 
-  //Filter books based on grade
+  //Filtrera böcker baserat på betyg
   let filteredBooks = books;
   if (showUnread) {
     filteredBooks = filteredBooks.filter((book) => book.grade === 0);
   } else if (showRead) {
     filteredBooks = filteredBooks.filter((book) => book.grade !== 0);
-  } 
+  }
 
   return (
     <div>
       <div className="d-flex justify-content-between _book _ls-1">
         <div>
           <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Sort your books
+            Sort your books
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" onClick={handleShowAllBooks} href="#">Show all books</a></li>
@@ -133,24 +142,24 @@ const Bookshelf = () => {
                 <h1 className="modal-title" id="exampleModalLabel">{selectedBook.title}</h1>
                 <img className="me-2" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
 
-                {selectedBook.bookInfo ? ( 
-                <p>{selectedBook.bookInfo}</p>
+                {selectedBook.bookInfo ? (
+                  <p>{selectedBook.bookInfo}</p>
                 ) : (
-                <p> Book info not found. </p>
+                  <p> Book info not found. </p>
                 )}
 
                 <p>Author: {selectedBook.authors}</p>
                 <p>Published: {selectedBook.publishedDate}</p>
 
                 {selectedBook.grade !== 0 && (
-                <p>Grade: {selectedBook.grade}</p>
-                ) }   
+                  <p>Grade: {selectedBook.grade}</p>
+                )}
                 <StarRating grade={newGrade} setGrade={setNewGrade} />
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={handleUpdateGrade}>
-                    Update Grade
-                 </button>
+                  Update Grade
+                </button>
                 <button type="button" className="btn btn-danger" onClick={() => handleRemoveBook(selectedBook)}>
                   Remove from Bookshelf
                 </button>

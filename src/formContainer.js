@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Book from './bookListItem';
 
+// Hanterar api-anrop, bygger objekt av svaret och presenterar dessa i en lista
 const InputForm = () => {
   const apiKey = 'AIzaSyCnBU2K5epe8KRSljZmLjfF0KcMh_uueCA';
 
   const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState([]);
 
+  // Om inputrutan har mer än 2 bokstäver eller siffror ska apiet anropas 
   const handleSearchChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
@@ -18,6 +20,7 @@ const InputForm = () => {
     }
   };
 
+  // Hanterar anropet till API
   const handleSearch = (searchTerm) => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`)
       .then(response => response.json())
@@ -61,6 +64,7 @@ const InputForm = () => {
       });
   };
 
+  // Returnerar listan med böcker vi hämtat från apiet
   return (
     <div>
       <div className="mt-5 mx-auto w-50">

@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import StarRating from './rating';
 
 export default function BookInfo(props) {
-  const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png");
+  const img = props.item.smallImg !== undefined ? props.item.smallImg : require("./undefined.png"); // om ingen bild finns, ersätt den med denna
   
-  const [grade, setGrade] = useState(0); // Add state for grade
+  const [grade, setGrade] = useState(0); // Lägg till state för grade
 
   const SaveBook = () => {
-    const storedBooks = localStorage.getItem('books');
-    const books = storedBooks ? JSON.parse(storedBooks) : [];
+    const storedBooks = localStorage.getItem('books'); // Hämtar böcker från localstorage
+    const books = storedBooks ? JSON.parse(storedBooks) : []; // Parsar böckerna
 
     const bookExists = books.some((book) => book.title === props.item.title && book.publishedDate === props.item.publishedDate);
     if (!bookExists) {
-      const newBook = { ...props.item, grade }; // Add grade to the book object
+      const newBook = { ...props.item, grade }; // Lägg till grade på bokobjektet
       books.push(newBook);
       localStorage.setItem('books', JSON.stringify(books));
       alert('Saved');
@@ -24,6 +24,7 @@ export default function BookInfo(props) {
     }
   };
 
+  // Returnerar den valda boken i en modal
   return (
     <div>
       <div className="modal text-white" id="bookModal" role="dialog" tabIndex="-1" style={{ display: "block" }}>
