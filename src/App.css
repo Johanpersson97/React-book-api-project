@@ -21,8 +21,12 @@ body {
 }
 
 .small-image {
-  max-width: 80px;
+  width: 80px;
   margin: 2px
+}
+
+.large-image {
+  width: 250px;
 }
 
 .offcanvas {
