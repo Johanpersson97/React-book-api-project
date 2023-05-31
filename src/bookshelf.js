@@ -26,7 +26,7 @@ const Bookshelf = () => {
 
   const handleUpdateGrade = () => {
     const updatedBooks = books.map((book) => {
-      if (book.id === selectedBook.id) {
+      if (book.title === selectedBook.title) {
         return { ...book, grade: newGrade };
       }
       return book;
