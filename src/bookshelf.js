@@ -111,7 +111,7 @@ const Bookshelf = () => {
         <ul className="p-0 mt-3 list-group">
           {filteredBooks.map((book) => (
             <li
-              key={book.id}
+              key={book.title}
               className="list-group-item list-group-item-action list-group-item-dark d-flex p-0 align-items-center"
               onClick={() => handleOpenModal(book)}
             >
@@ -132,7 +132,7 @@ const Bookshelf = () => {
       ) : (
         <p>No books found in the bookshelf.</p>
       )}
-      
+
       {showModal && selectedBook && (
         <div className="modal" id="bookModal" role="dialog" tabIndex="-1" style={{ display: "block" }}>
           <div className="modal-dialog modal-lg">
@@ -156,7 +156,7 @@ const Bookshelf = () => {
                       {selectedBook.grade !== 0 && (
                         <p className="fs-5 p-0 m-0">Grade: {selectedBook.grade}</p>
                       )}
-                      <StarRating grade={newGrade} setGrade={setNewGrade} />
+                      <StarRating grade={selectedBook.grade} setGrade={setNewGrade} />
                     </div>
                   </div>
                 </div>
