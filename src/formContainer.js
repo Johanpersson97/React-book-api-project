@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Book from './bookListItem';
 
 // Hanterar api-anrop, bygger objekt av svaret och presenterar dessa i en lista
 const InputForm = () => {
   const apiKey = 'AIzaSyCnBU2K5epe8KRSljZmLjfF0KcMh_uueCA';
-
   const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState([]);
 
@@ -12,36 +11,33 @@ const InputForm = () => {
   const handleSearchChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
-
-    if (value.length > 1) {
-      handleSearch(value);
-    } else {
-      setBooks([]);
-    }
   };
 
+
   // Hanterar anropet till API
-  const handleSearch = (searchTerm) => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => {
-        const books = data.items.map(item => item.volumeInfo);
-        console.log(books)
  
-        const newBooks = books.map((book) => {
-          let trimmedAuthors;
+    useEffect(() => {
+      if (searchTerm.length > 1) {
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`)
+          .then(response => response.json())
+          .then(data => {
+            const books = data.items.map(item => item.volumeInfo);
+            console.log(books);
+  
+            const newBooks = books.map((book) => {
+              let trimmedAuthors;
         
-          if (book.authors) {
-            // Kolla om det finns flera författare
-            if (Array.isArray(book.authors)) {
-              trimmedAuthors = book.authors.join(", ");
-            } else {
-              // Om det bara finns en författare, använd författarens namn direkt
-              trimmedAuthors = book.authors;
-            }
-          } else {
-            //Om det ej finns författare returneras en tom sträng 
-            trimmedAuthors = "";
+              if (book.authors) {
+                // Kolla om det finns flera författare
+                if (Array.isArray(book.authors)) {
+                  trimmedAuthors = book.authors.join(", ");
+                } else {
+                  // Om det bara finns en författare, använd författarens namn direkt
+                  trimmedAuthors = book.authors;
+                }
+              } else {
+                //Om det ej finns författare returneras en tom sträng 
+                trimmedAuthors = "";
           }
         
           return {
@@ -54,15 +50,19 @@ const InputForm = () => {
             grade: 0,
             hasRead: false,
           };
-        });
-        
+            });
+  
+            setBooks(newBooks);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      } else {
+        setBooks([]);
+      }
+    }, [searchTerm]);
+  
 
-        setBooks(newBooks);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
 
   // Returnerar listan med böcker vi hämtat från apiet
   return (
