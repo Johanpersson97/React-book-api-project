@@ -153,9 +153,6 @@ const Bookshelf = () => {
                       <p className="_book _justify fs-6 mx-2"> Book info not found. </p>
                     )}
                     <div className="mx-2 mt-5 _book">
-                      {selectedBook.grade !== 0 && (
-                        <p className="fs-5 p-0 m-0">Grade: {selectedBook.grade}</p>
-                      )}
                       <StarRating grade={selectedBook.grade} setGrade={setNewGrade} />
                     </div>
                   </div>
