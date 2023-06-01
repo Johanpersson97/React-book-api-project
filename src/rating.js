@@ -26,8 +26,6 @@ const StarRating = ({ grade, setGrade }) => {
     setGrade(rating);
   };
 
-
-
   return (
 
     <div>
