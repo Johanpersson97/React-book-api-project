@@ -36,7 +36,7 @@ export default function BookInfo(props) {
                 <div className="vstack d-flex mt-1">
                   <img className="large-image me-2 align-self-start" src={img} alt="book cover" />
                   <h3 className="fs-4 mt-2">{props.item.authors}</h3>
-                  <p className="_book">{props.item.publishedDate.slice(0, 4)}</p>
+                  <p className="_book">{props.item.publishedDate}</p>
                 </div>
                 <div className="align-self-stretch d-flex flex-column justify-content-between">
                   {props.item.bookInfo ? (

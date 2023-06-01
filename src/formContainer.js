@@ -47,7 +47,7 @@ const InputForm = () => {
           return {
             title: book.title,
             authors: trimmedAuthors,
-            publishedDate: book.publishedDate,
+            publishedDate: book.publishedDate.slice(0, 4),
             img: book.imageLinks?.thumbnail,
             smallImg: book.imageLinks?.smallThumbnail,
             bookInfo: book.description,

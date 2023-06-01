@@ -36,7 +36,7 @@ export default function Book(props) {
               </p>
             </div>
           <span className="align-self-center me-3 _medium fs-6">
-            {props.item.publishedDate.slice(0, 4)}
+            {props.item.publishedDate}
           </span>
           </div>
 
