@@ -75,6 +75,10 @@ body {
   }
 
   .offcanvas {
-    min-width: 100vw;
+    min-width: 80vw;
+  }
+
+  .modal {
+    width: 100vw;
   }
 }

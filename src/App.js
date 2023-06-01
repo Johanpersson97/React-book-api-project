@@ -10,10 +10,8 @@ function App() {
   return (
     <div>
       <header className="container-fluid mt-3 d-flex flex-lg-row flex-column align-items-center justify-content-lg-between">
-
-
         <div className="d-flex flex-lg-row flex-column">
-          <img src={require("./book_icon_large.png")} id="bookIcon" alt="bookIcon" />
+          <img className="align-self-center" src={require("./book_icon_large.png")} id="bookIcon" alt="bookIcon" />
           <a href="" className="ms-2 text-white text-decoration-none">
             <h1 className="display-3 mb-0 _bold _ls-5">Bookster</h1>
             <p className="h5 ms-1 mt-0">Your online bookshelf</p>
