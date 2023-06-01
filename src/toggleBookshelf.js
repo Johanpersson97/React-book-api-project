@@ -23,7 +23,6 @@ const ToggleBookshelf = () => {
           <button className="btn btn-secondary px-2 mt-2 d-flex align-items-center" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
             <span className="carousel-control-next-icon ms-1" aria-hidden="true"></span>
           </button>
-          <h3 className="offcanvas-title me-2" id="offcanvasRightLabel">Bookshelf</h3>
         </div>
         <div className="offcanvas-body">
           <Bookshelf />
