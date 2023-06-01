@@ -4,15 +4,14 @@
 
 Vi har valt att arbeta med React då vi inte hade så mycket tid på oss till projektet och
 dessutom en tenta i ett annat ämne som tog upp mycket av vår tid. Därav ville vi inte börja på
-något helt nytt - utan använda våra befintliga kunskaper för att sätta upp en miljö snabbt och smärtfritt.
-Det är såklart en bonus att React även är ett av de mest populära ramverken och god dokumentation finns att tillgå
-på internet.
+något helt nytt - utan använda våra befintliga kunskaper för att sätta upp en miljö snabbt och smärtfritt. Värt att tillägga är att vi började sätta upp ett projekt i Vue istället, men efter mycket problem med mappstruktur och dylikt valde vi att luta oss mot React istället som tog några minuter att ordna.
+
+Det är såklart en bonus att React även är ett av de mest populära ramverken vilket innebär att det finns väldigt god dokumentation att tillgå på internet.
 
 ## Varför inte något annat Ramverk?
 
 Som nämnt ovan kände sig gruppen mest bekväm med React och det hade säkerligen gått att göra ett lika bra
-projekt med något av de andra stora ramverken. Tids- och stressfaktorn i det hela var de bidragande faktorerna till varför gruppen
-inte valde ett annat ramverk.
+projekt med något av de andra stora ramverken. Tids- och stressfaktorn i det hela var de bidragande faktorerna till varför gruppen inte valde ett annat ramverk. Dessutom finns det långt många fler arbetsmöjligheter inom React än inom exempelvis Vue eller Angular.
 
 # Köra Programmet
 
