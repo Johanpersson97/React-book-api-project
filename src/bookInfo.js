@@ -33,7 +33,7 @@ export default function BookInfo(props) {
             <div className="modal-body">
               <h2 className="modal-title h1" id="exampleModalLabel">{props.item.title}</h2>
               <div className="d-flex flex-column flex-lg-row mt-2">
-                <div className="vstack d-flex mt-1">
+                <div className="d-flex flex-column d-flex mt-1">
                   <img className="large-image me-2 align-self-start" src={img} alt="book cover" />
                   <h3 className="fs-4 mt-2">{props.item.authors}</h3>
                   <p className="_book">{props.item.publishedDate}</p>

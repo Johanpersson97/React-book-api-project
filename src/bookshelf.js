@@ -139,8 +139,8 @@ const Bookshelf = () => {
             <div className="modal-content bg-dark">
               <div className="modal-body">
                 <h2 className="modal-title h1" id="exampleModalLabel">{selectedBook.title}</h2>
-                <div className="hstack mt-2">
-                  <div className="vstack d-flex mt-1">
+                <div className="d-flex flex-column flex-lg-row mt-2">
+                <div className="d-flex flex-column d-flex mt-1">
                     <img className="large-image me-2 align-self-start" src={selectedBook.smallImg !== undefined ? selectedBook.smallImg : require("./undefined.png")} alt="Book cover" />
                     <h3 className="fs-4 mt-2">{selectedBook.authors}</h3>
                     <p className="_book">{selectedBook.publishedDate.slice(0, 4)}</p>
