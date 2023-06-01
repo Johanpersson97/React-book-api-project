@@ -123,7 +123,7 @@ const Bookshelf = () => {
               <div className="d-flex flex-column">
                 <p className="m-0">{book.title}</p>
                 <p className="m-0">{book.authors}</p>
-                {book.grade !== 0 && <p className="m-0">Grade: {book.grade}</p>}
+                {book.grade !== 0 && <p className="m-0">{book.grade}<span className='fs-5 star active'>★</span></p>}
               </div>
               <span className="ms-auto me-2">{book.publishedDate}</span>
             </li>
